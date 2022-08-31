@@ -1,16 +1,31 @@
 #include <iostream>
+#include <string>
+#include <fstream>
 
 namespace Lib {
 
-	void Print(int number)
+	template <typename T>
+	void Print(T t)
 	{
-		std::cout << number << "\n";
-	Lib:Print(123);
+		std::cout << t << "\n"; 
+	
 	}
+	void WriteToFile(std::string filePath)
+	{
+		std::ofstream file(filePath);
+		std::string fileContent;
+		std::getline(std::cin, fileContent);
+		file << fileContent;
+		file.close();
+
+
+	}
+	std::string filePath1 = "minfile.txt";
 }
 
 
 int main()
 {
-
+	Lib::Print("hej");
+	Lib::WriteToFile("minfil.txt");
 }
